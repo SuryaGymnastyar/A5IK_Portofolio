@@ -325,7 +325,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 20px;
   font-size: 16px;
-  color:;
+  color:#FFF;
   transition: all 0.3s ease;
 }
 
@@ -403,7 +403,7 @@ body {
 #biodata .flip-card-front,
 .flip-card-back {
   position: absolute;
-  padding: 35px 20px;
+  padding: 25px 20px;
   inset: 0;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -444,6 +444,35 @@ body {
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.socmed-btn {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    width: 25px; 
+    height: 25px;
+    margin-top: 5px; 
+    border-radius: 50%; 
+    background: rgba(255, 255, 255, 0.1); 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    overflow: hidden; 
+    border: 1px solid transparent; 
+}
+
+.socmed-logo{
+    width: 20px !important;  
+    height: 20px !important; 
+    object-fit: cover; 
+    border-radius: 50%; 
+    display: block; 
+}
+
+.socmed-btn:hover {
+    background-color: var(--primary-color); 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 4px 8px rgba(48, 131, 232, 0.3); 
 }
 
 .card h1 {
