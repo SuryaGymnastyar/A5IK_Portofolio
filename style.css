@@ -96,6 +96,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -110,13 +111,16 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
@@ -148,7 +152,6 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--text-primary);
-
 }
 
 .poppins-light {
@@ -276,10 +279,10 @@ body {
 }
 
 .glow {
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(48, 131, 232,0.2) 0%, transparent 60%)
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(48, 131, 232, 0.2) 0%, transparent 60%)
 }
 
 #home p {
@@ -291,29 +294,29 @@ body {
 }
 
 #home .box-home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
 }
 
 #home .box-home section {
-    text-align: center;
+  text-align: center;
 }
 
 #home .box-home section h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin: 0;
-    color: var(--primary-color);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color);
 }
 
 #home .box-home section p {
-    font-size: 14px;
-    max-width: 100%;
-    width: 100%;
-    color: var(--text-muted);
+  font-size: 14px;
+  max-width: 100%;
+  width: 100%;
+  color: var(--text-muted);
 }
 
 #home .btn-team {
@@ -325,12 +328,13 @@ body {
   background-color: var(--primary-color);
   border-radius: 20px;
   font-size: 16px;
-  color:#FFF;
+  color: #FFF;
   transition: all 0.3s ease;
 }
 
 #home .btn-team:hover {
   background-color: rgba(48, 131, 232, 0.6);
+  transform: translateY(-3px) scale(1.05);
   color: var(--primary);
 }
 
@@ -447,44 +451,150 @@ body {
 }
 
 .socmed-btn {
-    display: inline-flex; 
-    align-items: center;
-    justify-content: center;
-    width: 25px; 
-    height: 25px;
-    margin-top: 5px; 
-    border-radius: 50%; 
-    background: rgba(255, 255, 255, 0.1); 
-    text-decoration: none; 
-    transition: all 0.3s ease; 
-    overflow: hidden; 
-    border: 1px solid transparent; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid transparent;
 }
 
-.socmed-logo{
-    width: 20px !important;  
-    height: 20px !important; 
-    object-fit: cover; 
-    border-radius: 50%; 
-    display: block; 
+.socmed-logo {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .socmed-btn:hover {
-    background-color: var(--primary-color); 
-    transform: translateY(-3px) scale(1.05); 
-    box-shadow: 0 4px 8px rgba(48, 131, 232, 0.3); 
+  background-color: var(--primary-color);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(48, 131, 232, 0.3);
 }
 
 .card h1 {
   margin: 10px 0;
   font-size: 20px;
   font-weight: 600;
-  font-weight: 600;
 }
 
 .card p {
   font-size: 14px;
   color: var(--text-muted);
+}
+
+#about-section {
+  background-color: var(--background-color);
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+.about-wrapper.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-content {
+  background-color: #f8f8f8;
+  padding: 60px 40px;
+  border-radius: 25px;
+  color: #1a1a1a;
+  flex: 1;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.about-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.about-content p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.about-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.about-content .specialization {
+  color: #555;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 400px;
+}
+
+.about-image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(48, 131, 232, 0.2);
+}
+
+@media (max-width: 768px) {
+  .about-wrapper,
+  .about-wrapper.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  .slide {
+    height: auto;
+    padding: 50px 0;
+  }
+}
+
+.slide-container {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden; 
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+}
+
+.slide-inner {
+  display: flex;
+  width: 200%; 
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-inner img {
+  width: 50%; 
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image:hover .slide-inner {
+  transform: translateX(-50%);
 }
 
 @keyframes animate-pulse {
