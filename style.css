@@ -152,6 +152,25 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
 }
 
 .poppins-light {
@@ -195,33 +214,42 @@ body {
 }
 
 .container {
-  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 25px 0;
+  right: 0;
+  padding: 25px 0px;
   background-color: rgba(7, 14, 29, 0.5);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--text-muted);
-  z-index: 1;
+  z-index: 10;
+  overflow-x: auto;
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+}
+
+#home .title {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .navbar .menu {
+  flex-shrink: 0;
   display: flex;
   gap: 20px;
   font-size: 14px;
+  align-items: center;
   color: var(--text-muted);
 }
 
@@ -282,12 +310,15 @@ body {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(48, 131, 232, 0.2) 0%, transparent 60%)
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(48, 131, 232, 0.2) 0%,
+    transparent 60%
+  );
 }
 
 #home p {
   margin: 0 auto;
-  max-width: 95%;
   width: 60%;
   line-height: 1.5;
   color: var(--text-muted);
@@ -297,6 +328,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 50px;
   margin-top: 50px;
 }
@@ -319,7 +351,7 @@ body {
   color: var(--text-muted);
 }
 
-#home .btn-team {
+.btn-team {
   margin-top: 30px;
   display: inline-flex;
   align-items: center;
@@ -328,7 +360,7 @@ body {
   background-color: var(--primary-color);
   border-radius: 20px;
   font-size: 16px;
-  color: #FFF;
+  color: #fff;
   transition: all 0.3s ease;
 }
 
@@ -361,7 +393,6 @@ body {
 
 #biodata header p {
   margin: 0 auto;
-  max-width: 95%;
   width: 50%;
   color: var(--text-muted);
 }
@@ -377,9 +408,15 @@ body {
 #biodata .card {
   position: relative;
   perspective: 1000px;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 350px;
   overflow: hidden;
+}
+
+#biodata .footer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 #biodata .flip-card {
@@ -395,7 +432,7 @@ body {
 }
 
 #biodata .card .flip-card-front p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   font-style: italic;
 }
@@ -428,6 +465,7 @@ body {
 #biodata .flip-card-back .subtitle {
   color: var(--primary-color);
   padding: 5px 8px;
+
   background-color: rgba(48, 131, 232, 0.3);
   display: inline-block;
   border-radius: 8px;
@@ -435,7 +473,8 @@ body {
 
 #biodata .flip-card-back .deskripsi p {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
@@ -491,19 +530,19 @@ body {
 }
 
 #about-section {
+  padding: 0 10px;
+  padding-top: 100px;
   background-color: var(--background-color);
 }
 
 .slide {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 80px;
+  margin: 110px 0;
 }
 
 .about-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 40px;
   justify-content: center;
 }
@@ -513,8 +552,8 @@ body {
 }
 
 .about-content {
-  background-color: #f8f8f8;
-  padding: 60px 40px;
+  background-color: var(--background-card);
+  padding: 40px;
   border-radius: 25px;
   color: #1a1a1a;
   flex: 1;
@@ -528,14 +567,16 @@ body {
 }
 
 .about-content p {
+  color: var(--text-muted) !important;
   font-size: 16px;
   margin-bottom: 15px;
 }
 
 .about-content h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  color: #000;
+  margin: 10px 0 15px 0;
+  font-size: 42px;
+  line-height: 1.1;
+  color: #fff;
 }
 
 .about-content .specialization {
@@ -543,6 +584,20 @@ body {
   font-size: 14px;
   border-top: 1px solid #ddd;
   padding-top: 15px;
+}
+
+.about-content .experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--primary-color);
+  font-size: 11px;
+}
+
+.about-content .experience-tags span {
+  background: #eef2f7;
+  padding: 5px 12px;
+  border-radius: 15px;
 }
 
 .about-image {
@@ -574,21 +629,22 @@ body {
   display: block;
   width: 100%;
   aspect-ratio: 1/1;
-  overflow: hidden; 
+  overflow: hidden;
   border-radius: 30px;
   cursor: pointer;
   position: relative;
+  box-shadow: 2px 2px 30px rgba(7, 86, 254, 0.2);
 }
 
 .slide-inner {
   display: flex;
-  width: 200%; 
+  width: 200%;
   height: 100%;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slide-inner img {
-  width: 50%; 
+  width: 50%;
   height: 100%;
   object-fit: cover;
 }
@@ -607,26 +663,28 @@ body {
   100% {
     transform: translateY(0);
   }
-
 }
 
 /* ===== CONTACT SECTION ===== */
 #contact {
-  padding: 100px 0;
+  padding: 100px 10px;
   text-align: center;
   position: relative;
 }
 
 #contact::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(48, 131, 232, 0.08) 0%, transparent 65%);
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(48, 131, 232, 0.08) 0%,
+    transparent 65%
+  );
   pointer-events: none;
 }
 
 #contact .container {
-  padding: 0 20px;
   position: relative;
   z-index: 1;
 }
@@ -669,7 +727,6 @@ body {
 /* Input & Textarea */
 #contact form input,
 #contact form textarea {
-  width: 100%;
   background-color: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(117, 136, 163, 0.25);
   border-radius: 10px;
@@ -745,15 +802,19 @@ body {
   padding: 70px 0 0;
   overflow: hidden;
 }
- 
+
 .footer-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(48, 131, 232, 0.07) 0%, transparent 65%);
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(48, 131, 232, 0.07) 0%,
+    transparent 65%
+  );
   pointer-events: none;
   z-index: 0;
 }
- 
+
 #footer .container {
   position: relative;
   z-index: 1;
@@ -771,11 +832,11 @@ body {
   font-size: 22px;
   margin-bottom: 12px;
 }
- 
+
 .footer-logo span {
   color: var(--primary-color);
 }
- 
+
 .footer-desc {
   font-size: 13px;
   color: var(--text-muted);
@@ -783,12 +844,12 @@ body {
   max-width: 260px;
   margin-bottom: 18px;
 }
- 
+
 .footer-socials {
   display: flex;
   gap: 10px;
 }
- 
+
 .footer-socmed-btn {
   display: inline-flex;
   align-items: center;
@@ -801,14 +862,14 @@ body {
   transition: all 0.3s ease;
   overflow: hidden;
 }
- 
+
 .footer-socmed-btn:hover {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   transform: translateY(-3px);
   box-shadow: 0 6px 14px rgba(48, 131, 232, 0.3);
 }
- 
+
 .footer-socmed-btn .socmed-logo {
   width: 22px !important;
   height: 22px !important;
@@ -823,9 +884,9 @@ body {
   position: relative;
   padding-bottom: 10px;
 }
- 
+
 .footer-col-title::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -834,26 +895,28 @@ body {
   background-color: var(--primary-color);
   border-radius: 2px;
 }
- 
+
 .footer-links {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
- 
+
 .footer-links li a,
 .footer-links li span {
   font-size: 13px;
   color: var(--text-muted);
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
   display: inline-block;
 }
- 
+
 .footer-links li a:hover {
   color: var(--primary-color);
   transform: translateX(4px);
 }
- 
+
 .footer-contact-item {
   display: flex !important;
   align-items: center;
@@ -861,12 +924,12 @@ body {
   color: var(--text-muted);
   font-size: 13px;
 }
- 
+
 .footer-contact-item svg {
   flex-shrink: 0;
   color: var(--primary-color);
 }
- 
+
 .footer-contact-item:hover {
   color: var(--primary-color) !important;
 }
@@ -891,16 +954,16 @@ body {
   flex-wrap: wrap;
   gap: 10px;
 }
- 
+
 .footer-copy {
   font-size: 12px;
   color: var(--text-muted);
 }
- 
+
 .footer-copy span {
   color: var(--primary-color);
 }
- 
+
 .footer-made {
   font-size: 12px;
   color: var(--text-muted);
@@ -915,8 +978,35 @@ body {
     grid-column: 1 / -1;
   }
 }
- 
+
 @media (max-width: 560px) {
+  #home .title {
+    width: 100%;
+    font-size: 50px;
+  }
+
+  .about-wrapper {
+    align-items: center;
+  }
+
+  #home p {
+    width: 100%;
+  }
+
+  #biodata .card {
+    width: 450px;
+    height: 450px;
+  }
+
+  #biodata header h1 {
+    font-size: 35px;
+  }
+
+  #biodata header p {
+    width: 100%;
+    font-size: 14px;
+  }
+
   .footer-top {
     grid-template-columns: 1fr;
   }
